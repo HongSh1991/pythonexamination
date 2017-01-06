@@ -1,0 +1,9 @@
+尊敬的用户 {{ user.username }},
+
+通过点击以下链接来确认新邮箱:
+
+{{ url_for('auth.change_email', token=token, _external=True) }}
+
+
+HONGSH
+请不要回复这封邮件

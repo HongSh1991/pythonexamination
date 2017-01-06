@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}首页|梦想的天空{% endblock %}
+
+{% block page_content %}
+<meta character=utf-8>
+<div class="page-header">
+    <h4>你好，{% if current_user.is_authenticated %}{{ current_user.username }}{% else %}游客{% endif %}！</h4>
+</div>
+<div>
+    {% if current_user.can(Permission.WRITE_ARTICLES) %}
+    <!--Modified-->
+    <form role="form" method="post" style="padding-left: 30px;margin-bottom: 10px">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.title.label(class='control-label h6') }}
+            {{ form.title(class='form-control', placeholder='输入标题', style='width:40%') }}
+            {% for error in form.title.errors %}
+            <span class="help-block" style="color: #f8545b">
+                <img src="../static/icon/icon_wrong.png" style="width: 13px;height:13px"> {{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.body.label(class='control-label h6') }}
+            {{ form.body(class='form-control ckeditor', placeholder='输入文章') }}
+            {% for error in form.body.errors %}
+            <span class="help-block" style="color: #f8545b">
+                <img src="../static/icon/icon_wrong.png" style="width: 13px;height:13px"> {{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.category.label(class='control-label h6') }}
+            {{ form.category(class='form-control input-sm', style='width:10%') }}
+        </div>
+        {{ form.submit(class='btn btn-primary',style='margin-bottom:25px') }}
+    </form>
+    {% endif %}
+    <ul class="list-post" style="padding-left: 30px">
+        <li {% if not show_followed %} class="active"{% endif %}>
+            <a href="{{ url_for('main.show_all') }}">全部文章</a>
+        </li>
+        <li {% if show_followed %} class="active"{% endif %}>
+            <a href="{{ url_for('main.show_followed') }}">关注者文章</a>
+        </li>
+    </ul>
+    {% include '_post.html' %}
+<div style="margin-left: 200px ">
+    {{ macros.pagination_widget(pagination, "main.index")}}
+</div>
+{% endblock page_content %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename = 'ckeditor/ckeditor.js') }}"></script>
+    <script>
+$(document).ready(function(){
+$(".post-body").each(function()
+{
+ var maxwidth=250;
+ if($(this).text().length>maxwidth){
+ $(this).text($(this).text().substring(0,maxwidth));
+$(this).html($(this).html()+"...");
+}
+});
+ });
+</script>
+{% endblock scripts %}

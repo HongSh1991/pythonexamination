@@ -1,0 +1,7 @@
+<p>尊敬的用户： {{ user.username }},</p>
+<p>欢迎使用本博客！</p>
+<p>为了确认您的注册请 <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">点击确认</a>.</p>
+<p>您也可以将以下链接复制到浏览器的地址栏访问:</p>
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+<p>HONGSH</p>
+<p><small>请不要回复本邮件</small></p>

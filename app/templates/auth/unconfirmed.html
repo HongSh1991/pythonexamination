@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}HONGSH - 确认您的账户{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>
+        您好，{{ current_user.username }}！
+    </h1>
+    <h3>您还没有确认注册.</h3>
+    <p>
+        在登陆本站之前需要注册并确认。
+    </p>
+    <p>
+        没有收到确认邮件？
+        <a href="{{ url_for('auth.resend_confirmation') }}">重新发送</a>
+    </p>
+</div>
+{% endblock %}
