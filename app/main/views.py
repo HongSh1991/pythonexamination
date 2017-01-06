@@ -188,10 +188,10 @@ def unfollow(username):
         flash(u'无效的用户')
         return redirect(url_for('.index'))
     if not current_user.is_following(user):
-        flash(u'您并未关注该用户')
+        flash(u'您没有关注该用户')
         return redirect(url_for('.user', username=username))
     current_user.unfollow(user)
-    flash(u'您不在关注 %s .' % username)
+    flash(u'您不再关注 %s .' % username)
     return redirect(url_for('.user', username=username))
 
 

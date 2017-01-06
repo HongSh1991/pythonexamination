@@ -2,12 +2,12 @@
 from flask import render_template, redirect, request, url_for, flash
 from flask_login import login_user, logout_user, login_required, \
     current_user
-from . import auth
-from .. import db
-from ..models import User
-from ..email import send_email
 from .forms import LoginForm, RegistrationForm, ChangePasswordForm,\
     PasswordResetRequestForm, PasswordResetForm, ChangeEmailForm
+from ..email import send_email
+from ..models import User
+from . import auth
+from .. import db
 
 
 @auth.before_app_request
@@ -43,7 +43,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash(u'您已经登出')
+    flash(u'您已经登出!')
     return redirect(url_for('main.index'))
 
 
@@ -145,7 +145,7 @@ def change_email_request():
             send_email(new_email, u'确认您的邮箱地址',
                        'auth/email/change_email',
                        user=current_user, token=token)
-            flash(u'一封指导您如何修改邮箱的邮件已经发送到您的邮箱')
+            flash(u'一封指导邮件已经发送到您的邮箱,请查收!')
             return redirect(url_for('main.index'))
         else:
             flash(u'无效的邮箱或密码')

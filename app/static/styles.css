@@ -82,22 +82,22 @@ div.flask-pagedown-preview {
     padding: 4px;
 }
 div.flask-pagedown-preview h1 {
-    font-size: 140%;
+    font-size: 120%;
 }
 div.flask-pagedown-preview h2 {
-    font-size: 130%;
+    font-size: 110%;
 }
 div.flask-pagedown-preview h3 {
-    font-size: 120%;
+    font-size: 100%;
 }
 .post-body h1 {
-    font-size: 140%;
+    font-size: 120%;
 }
 .post-body h2 {
-    font-size: 130%;
+    font-size: 110%;
 }
 .post-body h3 {
-    font-size: 120%;
+    font-size: 100%;
 }
 .table.followers tr {
     border-bottom: 1px solid #e0e0e0;
