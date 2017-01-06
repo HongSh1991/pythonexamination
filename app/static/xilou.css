@@ -1,8 +1,6 @@
 body {
     font-size: 14px;
-    background-attachment:fixed;
-    background-image: url('http://www.wallcoo.com/nature/Amazing_Color_Landscape_2560x1600/wallpapers/1600x900/Amazing_Landscape_25.jpg');
-    /*background-image: url('https://drscdn.500px.org/photo/171351311/q%3D80_m%3D2000/75d4251b1b232c8937775265f3e73d0d');*/
+    /*background-attachment:fixed;*/
 }
 
 
@@ -45,7 +43,7 @@ body .container{
 .article-card{
     background-color:white;
     padding:10px 30px;
-	margin-bottom:20px;
+	  margin-bottom:20px;
     border-radius: 8px 8px 0 0;
 }
 

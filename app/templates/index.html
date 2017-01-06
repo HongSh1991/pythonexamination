@@ -6,8 +6,10 @@
 
 {% block page_content %}
 <meta character=utf-8>
+<div style="height: 20px"></div>
 <div class="page-header">
-    <h4>你好，{% if current_user.is_authenticated %}{{ current_user.username }}{% else %}游客{% endif %}！</h4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="font-weight: 800px;font-family: '黑体'; font-size: 16pt;">你好，{% if current_user.is_authenticated %}{{ current_user.username }}{% else %}游客{% endif %}！</span>
 </div>
 <div>
     {% if current_user.can(Permission.WRITE_ARTICLES) %}
@@ -37,17 +39,25 @@
         {{ form.submit(class='btn btn-primary',style='margin-bottom:25px') }}
     </form>
     {% endif %}
-    <ul class="list-post" style="padding-left: 30px">
+    <ul class="list-post" style="padding-left: 20px">
         <li {% if not show_followed %} class="active"{% endif %}>
-            <a href="{{ url_for('main.show_all') }}">全部文章</a>
+            <a href="{{ url_for('main.show_all') }}" style="font-family: '黑体'; font-size: 10pt; color: black; border-color: lightgrey; border-radius: 2px;">全部文章</a>
         </li>
         <li {% if show_followed %} class="active"{% endif %}>
-            <a href="{{ url_for('main.show_followed') }}">关注者文章</a>
+            <a href="{{ url_for('main.show_followed') }}" style="font-family: '黑体'; font-size: 10pt; color: black; border-color: lightgrey; border-radius: 2px;">关注者文章</a>
         </li>
     </ul>
     {% include '_post.html' %}
 <div style="margin-left: 200px ">
     {{ macros.pagination_widget(pagination, "main.index")}}
+</div>
+<br>
+<hr width="100%">
+<div>
+    <footer style="height: 60px; width: 100%; background-color: transparent; align-items: center;">
+        <p style="text-align: center; font-family: '黑体'; color: grey;">Copyright&copy;By DreamSky-Team</p>
+        <p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud</p>
+    </footer>
 </div>
 {% endblock page_content %}
 

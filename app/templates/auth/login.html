@@ -10,7 +10,11 @@
 <div class="col-md-4">
     {{ wtf.quick_form(form) }}
     <br>
-    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: bold;"> 忘记密码? <a href="{{ url_for('auth.password_reset_request') }}" style="">重置密码</a></div>
-    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: bold;">想要注册? <a href="{{ url_for('auth.register') }}"	>注册账户</a></div>
+    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: 200px;"> 忘记密码? <a href="{{ url_for('auth.password_reset_request') }}" style="">重置密码</a></div>
+    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: 200px;">想要注册? <a href="{{ url_for('auth.register') }}"	>注册账户</a></div>
 </div>
+<footer style="height: 60px; width: 100%; background-color:transparent; position: absolute; bottom: 0; left: 0;">
+	<p style="text-align: center; font-family: '黑体'; color: grey;">Copyright&copy;By DreamSky-Team</p>
+    <p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud</p>
+</footer>
 {% endblock %}

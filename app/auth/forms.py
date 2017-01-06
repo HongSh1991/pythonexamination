@@ -7,10 +7,12 @@ from ..models import User
 
 
 class LoginForm(Form):
-    email = StringField(u'邮     箱', validators=[Required(), Length(1, 64), Email()])
-    password = PasswordField(u'密    码', validators=[Required()])
-    remember_me = BooleanField(u'记住我')
-    submit = SubmitField(u'登    录')
+    email = StringField(u'邮     箱', validators=[Required(), Length(1, 64), Email()], render_kw={"placeholder": "yourname@example.com",
+                        "style": "background: url(/static/login-locked-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-width:1px"})
+    password = PasswordField(u'密    码', validators=[Required()], render_kw={"placeholder": "Your Password",
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-width:1px"})
+    remember_me = BooleanField(u'记住我', render_kw={"style": ""})
+    submit = SubmitField(u'登    录', render_kw={"style": "width:120px"})
 
 
 class RegistrationForm(Form):

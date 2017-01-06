@@ -43,7 +43,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash(u'您已经登出!')
+#    flash(u'您已经登出!')
     return redirect(url_for('main.index'))
 
 
