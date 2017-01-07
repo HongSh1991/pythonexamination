@@ -4,15 +4,20 @@
 {% block title %}登录|梦想的天空{% endblock %}
 
 {% block page_content %}
+<div style="height: 20px"></div>
 <div class="page-header">
-    <h6 style="font-family: '微软雅黑';font-weight: bold;">用户登录</h6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="font-weight: 800px;font-family: '黑体'; font-size: 16pt;">用户登录</span>
 </div>
-<div class="col-md-4">
-    {{ wtf.quick_form(form) }}
-    <br>
-    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: 200px;"> 忘记密码? <a href="{{ url_for('auth.password_reset_request') }}" style="">重置密码</a></div>
-    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: 200px;">想要注册? <a href="{{ url_for('auth.register') }}"	>注册账户</a></div>
+<div class="col-md-4" style="width: 400px;">
+	<div>
+		{{ wtf.quick_form(form) }}
+	</div>
 </div>
+<div>
+    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: 200px;" align="left"> 忘记密码? <a href="{{ url_for('auth.password_reset_request') }}" style="color: #126fda; text-decoration: underline;">重置密码</a></div>
+    <div style="font-size: 12pt; font-family: '微软雅黑'; font-weight: 200px;" align="left">没有账号? <a href="{{ url_for('auth.register') }}" style="color: #126fda; text-decoration: underline;">注册账户</a></div>
+    </div>
 <footer style="height: 60px; width: 100%; background-color:transparent; position: absolute; bottom: 0; left: 0;">
 	<p style="text-align: center; font-family: '黑体'; color: grey;">Copyright&copy;By DreamSky-Team</p>
     <p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud</p>
