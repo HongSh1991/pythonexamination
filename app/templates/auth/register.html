@@ -4,14 +4,19 @@
 {% block title %}注册|梦想的天空{% endblock %}
 
 {% block page_content %}
+<div style="height: 20px"></div>
 <div class="page-header">
-    <h6 style="font-family: '微软雅黑';font-weight: bold;">注册新用户</h6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="font-weight: 800px;font-family: '黑体'; font-size: 16pt;">注册新用户</span>
 </div>
 <div class="col-md-4">
     {{ wtf.quick_form(form) }}
 </div>
-<footer style="height: 60px; width: 100%; background-color: transparent; position: absolute; bottom: 0; left: 0;">
-    <p style="text-align: center; font-family: '黑体'; color: grey;">Copyright&copy;By DreamSky-Team</p>
-    <p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud</p>
-</footer>
+
+<div>
+	<footer style="height: 60px; width: 100%; background-color: transparent; position: absolute; bottom: 0; left: 0;">
+    	<p style="text-align: center; font-family: '黑体'; color: grey;">Copyright&copy;By DreamSky-Team</p>
+    	<p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud</p>
+	</footer>
+</div>
 {% endblock %}
