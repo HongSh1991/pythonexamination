@@ -57,7 +57,7 @@ class PostForm(Form):
     category = SelectField('文章分类：', 
         choices=[('编程语言'), ('Python', 'Python'), ('Flask', 'Flask'), ('Django','Django'), 
                  ('计算机理论'), ('算法导论', '算法导论'), ('数据库', '数据库'),
-                 (''), ('文学随笔', '文学随笔')], coerce=str)
+                 ('数据分析'), ('Hadoop'), ('Spark')], coerce=str)
     submit = SubmitField(u'发表')
     
 

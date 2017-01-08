@@ -37,44 +37,75 @@
                 <div style="font-size: 16px;border-bottom: 1px solid #dad4d4;padding: 0 0 10px 0">
                 <strong><span><img src="../static/category.png"></span> 文章分类</strong>
                 </div>
-                <ul style="list-style-type: none;padding-left: 0;line-height: 2.5em;margin-top: 10px;">
-                    <li>
-                        <a href="{{ url_for('main.show_category_post', category='Python') }}" style="">
-                            Python
-                        <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='Python').count() }}</span></a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('main.show_category_post', category='Flask') }}">
-                            Flask</a>
-                        <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='Flask').count() }}</span>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('main.show_category_post', category='Django') }}">
-                            Django</a>
-                        <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='Django').count() }}</span>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('main.show_category_post', category='算法导论') }}">
-                            算法导论</a>
-                        <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='算法导论').count() }}</span>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('main.show_category_post', category='高级数据库技术原理') }}">
-                            数据库</a>
-                        <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='数据库').count() }}</span>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('main.show_category_post', category='文学随笔') }}">
-                            文学随笔</a>
-                        <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='文学随笔').count() }}</span>
-                    </li>
-                </ul>
+                <div class="list" style="list-style-type: none;padding-left: 0;line-height: 2.5em;margin-top: 10px;">
+                    <ul class="nav">
+                        <li><a href="#">编程语言</a>
+                            <ul class="sub_nav">
+                                <li><a href="{{ url_for('main.show_category_post', category='Python') }}" style="">Python</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='Python').count() }}</span>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('main.show_category_post', category='Flask') }}">Flask</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='Flask').count() }}</span>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('main.show_category_post', category='Django') }}">Django</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='Django').count() }}</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">计算机基础</a>
+                            <ul class="sub_nav">
+                                <li>
+                                    <a href="{{ url_for('main.show_category_post', category='算法导论') }}">算法导论</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='算法导论').count() }}</span>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('main.show_category_post', category='数据库') }}">数据库</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='数据库').count() }}</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">数据分析</a>
+                            <ul class="sub_nav">
+                                <li>
+                                <a href="{{ url_for('main.show_category_post', category='Hadoop') }}">Hadoop</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='Hadoop').count() }}</span>
+                                </li>
+                                <li>
+                                <a href="{{ url_for('main.show_category_post', category='Spark') }}">Spark</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='Spark').count() }}</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">其他</a>
+                            <ul class="sub_nav">
+                                <li>
+                                    <a href="{{ url_for('main.show_category_post', category='随笔') }}">随笔</a>
+                                    <span class="badge text-right" style="float:right">
+                                    {{ Post.query.filter_by(category='随笔').count() }}</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+                    <script type="text/javascript">
+                        $(".nav li").mouseover(function(){
+                        $(this).find('ul').slideDown();});
+                        $(".nav li").mouseleave(function(){
+                        $(this).find('ul').slideUp();});
+                    </script>
+                </div>
             </div>
         </div>
     </div>
