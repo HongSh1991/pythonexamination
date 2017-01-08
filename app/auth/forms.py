@@ -7,29 +7,29 @@ from ..models import User
 
 
 class LoginForm(Form):
-    email = StringField(u'邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:', validators=[Required(), Length(1, 64), Email()], render_kw={"placeholder": "  |  yourname@example.com",
-                        "style": "background: url(/static/login-locked-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-radius:4px; border-style:solid; border-color:#757575;"})
-    password = PasswordField(u'密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    码:', validators=[Required()], render_kw={"placeholder": "  |  yourpassword",
-                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-radius:4px; border-style:solid; border-color:#757575;"})
-    remember_me = BooleanField(u'记住我', render_kw={"style": "align:right;"})
+    email = StringField(u'邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:', validators=[Required(), Length(1, 64), Email()], render_kw={"placeholder": "yourname@example.com",
+                        "style": "background: url(/static/login-locked-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    password = PasswordField(u'密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:', validators=[Required()], render_kw={"placeholder": "Your Password",
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    remember_me = BooleanField(u'记住我', render_kw={"style": "align:right; text-indent: 28px;"})
     submit = SubmitField(u'登    录', render_kw={"style": "width:282px; height:40px; background-color:#126fda; font-weight:bold;"})
 
 
 class RegistrationForm(Form):
     email = StringField(u'邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱:', validators=[Required(), Length(1, 64), Email()], render_kw={"placeholder": "yourname@example.com",
-                        "style": "background: url(/static/login-locked-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-width:1px"})
+                        "style": "background: url(/static/login-locked-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
     username = StringField(u'用户名:', validators=[
         Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                                           u'用户名只能包括字母数字小数点和下划线')], render_kw={"placeholder": "Your Name",
-                        "style": "background: url(/static/username.png)no-repeat 15px center; text-indent: 28px; width:280px; border-width:1px"})
-    remember_me = BooleanField(u'&nbsp;&nbsp;记住我', default=False, render_kw={"style": "text-indent: 0px; align:left;"})
+                        "style": "background: url(/static/username.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    #remember_me = BooleanField(u'&nbsp;&nbsp;记住我', default=False, render_kw={"style": "text-indent: 0px; align:left;"})
     password = PasswordField(u'密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:', validators=[
         Required(), EqualTo('password2', message=u'两次密码必须相同!')], render_kw={"placeholder": "Your Password",
-                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-width:1px"})
-    remember_me = BooleanField(u'&nbsp;&nbsp;记住我', default=False, render_kw={"style": "text-indent: 0px; align:left;"})
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    #remember_me = BooleanField(u'&nbsp;&nbsp;记住我', default=False, render_kw={"style": "text-indent: 0px; align:left;"})
     password2 = PasswordField(u'确认密码:', validators=[Required()], render_kw={"placeholder": "Your Password",
-                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; width:280px; border-width:1px"})
-    remember_me = BooleanField(u'&nbsp;&nbsp;记住我', default=False, render_kw={"style": "text-indent: 0px; align:left;"})
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    #remember_me = BooleanField(u'&nbsp;&nbsp;记住我', default=False, render_kw={"style": "text-indent: 0px; align:left;"})
     submit = SubmitField(u'注    册', render_kw={"style": "width:282px; height:40px; background-color:#126fda; font-weight:bold;"})
 
     def validate_email(self, field):

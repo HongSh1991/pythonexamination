@@ -26,7 +26,7 @@
                         <span><small>评论 {{ post.comments.count() }}</small></span>
                     </a>
                     <a href="{{ url_for('main.post', id=post.id) }}" style="float: right;color: #1abc9c">
-                        <img src="../static/readmore.png"> <small>阅读全文>></small>
+                        <img src="../static/readmore.png"> <small style="font-size: 10pt; font-family: '黑体'; font-weight: 100px; color: #126fda;">阅读全文>></small>
                     </a>
                 </footer>
             </article>
@@ -64,9 +64,9 @@
                     </li>
                     <li>
                         <a href="{{ url_for('main.show_category_post', category='高级数据库技术原理') }}">
-                            高级数据库技术原理</a>
+                            数据库</a>
                         <span class="badge text-right" style="float:right">
-                        {{ Post.query.filter_by(category='高级数据库技术原理').count() }}</span>
+                        {{ Post.query.filter_by(category='数据库').count() }}</span>
                     </li>
                     <li>
                         <a href="{{ url_for('main.show_category_post', category='文学随笔') }}">

@@ -4,11 +4,6 @@
 {% block title %}登录|梦想的天空{% endblock %}
 
 {% block page_content %}
-<style type="text/css">
-	#remember_me{
-		font-family: 
-	}
-</style>
 <div style="height: 20px"></div>
 <div class="page-header">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -16,21 +11,15 @@
 </div>
 <div class="col-md-4" style="width: 400px;">
 	<div>
-		<form method="POST">
-			<span style="font-family: '黑体'; font-size: 12pt;">用户名:&nbsp;&nbsp;	</span>{{form.email}}
-			<br><br>
-			<span style="font-family: '黑体'; font-size: 12pt;">密&nbsp;&nbsp;&nbsp;    码:&nbsp;&nbsp;&nbsp;</span>{{form.password}}
-		</form>
-		
+		{{ wtf.quick_form(form) }}
 	</div>
 </div>
-<!--{{ wtf.quick_form(form) }}-->
 <div>
     <div style="font-size: 12pt; font-family: '黑体'; font-weight: 200px;" align="left"> 忘记密码? <a href="{{ url_for('auth.password_reset_request') }}" style="color: #126fda; text-decoration: underline;">重置密码</a></div>
     <div style="font-size: 12pt; font-family: '黑体'; font-weight: 200px;" align="left">没有账号? <a href="{{ url_for('auth.register') }}" style="color: #126fda; text-decoration: underline;">注册账户</a></div>
     </div>
 <footer style="height: 60px; width: 100%; background-color:transparent; position: absolute; bottom: 0; left: 0;">
 	<p style="text-align: center; font-family: '黑体'; color: grey;">Copyright&copy;By DreamSky-Team</p>
-    <p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud</p>
+    <p style="text-align: center; font-family: '黑体'; color: grey;">Support By Flask@JinJa@Bootstrap@TencentCloud@Github</p>
 </footer>
 {% endblock %}

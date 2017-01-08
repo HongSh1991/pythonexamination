@@ -54,7 +54,10 @@ class PostForm(Form):
     title = StringField(u'文章标题', validators=[DataRequired(message='请输入文字...'),
                                              Length(0, 40, message='文章标题请限制40字以内')])
     body = PageDownField(u"记录您的点滴...", validators=[DataRequired(message='请输入文字...')])
-    category = SelectField('文章分类：', choices=[('Python', 'Python'), ('Flask', 'Flask'), ('Django','Django'), ('算法导论', '算法导论'), ('高级数据库原理', '高级数据库原理'), ('文学随笔', '文学随笔')], coerce=str)
+    category = SelectField('文章分类：', 
+        choices=[('编程语言'), ('Python', 'Python'), ('Flask', 'Flask'), ('Django','Django'), 
+                 ('计算机理论'), ('算法导论', '算法导论'), ('数据库', '数据库'),
+                 (''), ('文学随笔', '文学随笔')], coerce=str)
     submit = SubmitField(u'发表')
     
 
