@@ -11,7 +11,7 @@ class LoginForm(Form):
                         "style": "background: url(/static/login-locked-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
     password = PasswordField(u'密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:', validators=[Required()], render_kw={"placeholder": "Your Password",
                         "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
-    remember_me = BooleanField(u'记住我', render_kw={"style": "align:right; text-indent: 28px;"})
+    remember_me = BooleanField(u'记住我')
     submit = SubmitField(u'登    录', render_kw={"style": "width:282px; height:40px; background-color:#126fda; font-weight:bold;"})
 
 
