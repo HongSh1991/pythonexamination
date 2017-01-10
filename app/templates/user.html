@@ -7,26 +7,26 @@
 <div class="page-header">
     <table class="profile-header">
         <tr>
-            <td valign="center"><img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=128) }}"></td>
+            <td valign="top"><img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=128) }}"></td>
             <td width="20px" valign="top"></td>
-            <td>
+            <td valign="top">
                 <h3>{{ user.username }}</h3>
                 {% if user.name or user.location %}
                 <p>
                     {% if user.name %}{{ user.name }}<br>{% endif %}
                     {% if user.location %}
-                    来自 <a href="http://map.baidu.com/?q={{ user.location }}">{{ user.location }}</a><br>
+                    来自 <a href="http://map.baidu.com/?q={{ user.location }}" style="color: #126fda">{{ user.location }}</a><br>
                     {% endif %}
                 </p>
                 {% endif %}
                 {% if current_user.is_administrator() %}
                 <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
                 {% endif %}
-                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.about_me %}<span style="font-size: 14pt;">自我描述:</span><br><p style="text-indent: 28px; border: solid 2px #126fda; height: 100px; border-radius: 6px;">{{ user.about_me }}</p>{% endif %}
                 {% if user == current_user or current_user.is_administrator() %}
-                <p>用户邮箱 {{ user.email }}. </p>
-                <p>注册时间 {{ moment(user.member_since).format('LLL') }}. </p>
-                <p>上次登陆 {{ moment(user.last_seen).fromNow() }}.</p>
+                <p>用户邮箱: {{ user.email }}. </p>
+                <p>注册时间: {{ moment(user.member_since).format('LLL') }}. </p>
+                <p>上次登陆: {{ moment(user.last_seen).fromNow() }}.</p>
                 {% endif %}
                 <p>{{ user.posts.count() }} 条已发布的博客 {{ user.comments.count() }} 条评论 </p>
                 <p>

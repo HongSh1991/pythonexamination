@@ -8,7 +8,7 @@
                 <P>
                     <small>
                         <span class="glyphicon glyphicon-calendar"></span>
-                        <span style="color:#8C8C8C;"><a href="{{ url_for('main.user', username=post.author.username)}}">
+                        <span style="color:#8C8C8C;"><a href="{{ url_for('main.user', username=post.author.username)}}" style="color: #126fda">
                             {{ post.author.username }}</a>发表于{{ moment(post.timestamp).format('YYYY年M月D日, hh:mm:ss a') }}
                         </span>
                     </small>

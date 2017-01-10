@@ -62,7 +62,7 @@ class PostForm(Form):
                  ('算法导论', '算法导论'), ('数据库', '数据库'),
                  ('Hadoop', 'Hadoop'), ('Spark', 'Spark'),
                  ('随笔', '随笔')], coerce=str, render_kw={"style": "border-radius:2px; border-width:1px; border-color:#126fda;"})
-    submit = SubmitField(u'发表博客', render_kw={"style": "width:120px; height:40px; background-color:#126fda; font-weight:bold;"})
+    submit = SubmitField(u'发表博客')
     
 
 class EditPostForm(Form):

@@ -42,10 +42,13 @@ class RegistrationForm(Form):
 
 
 class ChangePasswordForm(Form):
-    old_password = PasswordField(u'旧密码', validators=[Required()])
+    old_password = PasswordField(u'旧密码', validators=[Required()], render_kw={"placeholder": "Your Old Password",
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
     password = PasswordField(u'新密码', validators=[
-        Required(), EqualTo('password2', message=u'两次密码必须相同')])
-    password2 = PasswordField(u'确认新密码', validators=[Required()])
+        Required(), EqualTo('password2', message=u'两次密码必须相同')], render_kw={"placeholder": "Your New Password",
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    password2 = PasswordField(u'确认新密码', validators=[Required()], render_kw={"placeholder": "Confirm Your New Password",
+                        "style": "background: url(/static/password-icon.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
     submit = SubmitField(u'更新密码')
 
 
