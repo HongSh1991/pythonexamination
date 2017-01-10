@@ -45,7 +45,7 @@
                 </p>
                 <p>
                     {% if user == current_user %}
-                    <a class="btn btn-default" href="{{ url_for('.edit_profile') }}">编辑资料</a>
+                    <a class="btn btn-default" href="{{ url_for('.edit_profile') }}" style="background-color: #126fda; height: 38px; font-weight: bold;">编辑资料</a>
                     {% endif %}
                     {% if current_user.is_administrator() %}
                     <a class="btn btn-danger" href="{{ url_for('.edit_profile_admin', id=user.id) }}">管理员编辑资料</a>

@@ -14,10 +14,13 @@ class NameForm(Form):
 
 
 class EditProfileForm(Form):
-    name = StringField(u'真实姓名', validators=[Length(0, 64)])
-    location = StringField(u'地理位置', validators=[Length(0, 64)])
-    about_me = TextAreaField(u'自述')
-    submit = SubmitField(u'提交')
+    name = StringField(u'真实姓名', validators=[Length(0, 64)], render_kw={"placeholder": "your realname",
+                        "style": "background: url(/static/username.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    location = StringField(u'地理位置', validators=[Length(0, 64)], render_kw={"placeholder": "your location",
+                        "style": "background: url(/static/location.png)no-repeat 15px center; text-indent: 28px; height:35px; width:280px; border-width:1px"})
+    about_me = TextAreaField(u'自述', render_kw={"placeholder": "Please give some describe of yourself...",
+                        "style": "text-indent: 20px; height:100px; width:400px; border-width:1px"})
+    submit = SubmitField(u'确定提交', render_kw={"style": "width:100px; height:40px; background-color:#126fda; font-weight:bold;"})
 
 
 class EditProfileAdminForm(Form):
