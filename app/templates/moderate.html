@@ -4,13 +4,15 @@
 {% block title %}HONGSH - Comment Moderation{% endblock %}
 
 {% block page_content %}
+<div style="height: 20px"></div>
 <div class="page-header">
-    <h2 style="Font-Color:Red;">审核评论</h2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="font-weight: 800px;font-family: '黑体'; font-size: 16pt;">审核评论</span>
 </div>
 {% set moderate = True %}
 {% include '_comments.html' %}
 {% if pagination %}
-<div class="pagination">
+<div class="pagination" style="background-color: white; margin-left: 1020px">
     {{ macros.pagination_widget(pagination, '.moderate') }}
 </div>
 {% endif %}

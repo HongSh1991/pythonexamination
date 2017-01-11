@@ -4,8 +4,10 @@
 {% block title %}HONGSH - {{ title }} {{ user.username }}{% endblock %}
 
 {% block page_content %}
+<div style="height: 20px"></div>
 <div class="page-header">
-    <h1>{{ title }} {{ user.username }}</h1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="font-weight: 800px;font-family: '黑体'; font-size: 16pt;">{{ title }} {{ user.username }}</span>
 </div>
 <table class="table table-hover followers">
     <thead><tr><th>用户</th><th>从</th></tr></thead>
@@ -13,7 +15,7 @@
     {% if follow.user != user %}
     <tr>
         <td>
-            <a href="{{ url_for('.user', username = follow.user.username) }}">
+            <a href="{{ url_for('.user', username = follow.user.username) }}" style="color: #126fda">
                 <img class="img-rounded" src="{{ follow.user.gravatar(size=32) }}">
                 {{ follow.user.username }}
             </a>
@@ -23,7 +25,7 @@
     {% endif %}
     {% endfor %}
 </table>
-<div class="pagination">
+<div class="pagination" style="background-color: white; margin-left: 1020px">
     {{ macros.pagination_widget(pagination, endpoint, username = user.username) }}
 </div>
 {% endblock %}

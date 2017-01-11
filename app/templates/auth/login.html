@@ -9,9 +9,23 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span style="font-weight: 800px;font-family: '黑体'; font-size: 16pt;">用户登录</span>
 </div>
-<div class="col-md-4" style="width: 400px;">
-	<div>
-		{{ wtf.quick_form(form) }}
+<div class="col-md-4" style="width: 400px; padding-left: 0px;">
+	<div class="col-md-4">
+		<form role="form" method="post" style="padding-left: 0px;margin-bottom: 10px">
+        	{{ form.csrf_token }}
+        	<div class="form-group">
+            	{{ form.email.label(style='font-size:12pt;') }}
+            	{{ form.email(class='form-control', placeholder='Your Email', style='background: url(/static/login-locked-icon.png)no-repeat 15px center; width:282px; height:35px; border-width:1px; border-color:#126fda; text-indent:26px;') }}
+        	</div>
+        	<div class="form-group">
+            	{{ form.password.label(style='font-size:12pt;') }}
+            	{{ form.password(class='form-control', placeholder='Your Password', style='background: url(/static/password-icon.png)no-repeat 15px center; width:282px; height:35px; border-width:1px; border-color:#126fda; text-indent:26px;') }}
+        	</div>
+        	<div class="form-group" style="width: 282px;">
+            	{{ form.remember_me() }}{{ form.remember_me.label(style='font-size:12pt;') }}
+        	</div>
+        	{{ form.submit(class='btn btn-primary',style='margin-bottom:25px; background-color:#126fda; font-weight:bold; width:282px;') }}
+    	</form>
 	</div>
 </div>
 <div>

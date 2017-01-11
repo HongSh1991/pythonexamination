@@ -1,11 +1,23 @@
 # -*- coding:utf-8 -*-
-from flask import render_template, redirect, url_for, abort, flash, request, current_app, make_response
+from flask import render_template, redirect, url_for, abort, flash, request, current_app, make_response, g
 from flask_login import login_required, current_user
 from . import main
-from .forms import EditProfileForm, EditProfileAdminForm, PostForm, CommentForm
+from .forms import EditProfileForm, EditProfileAdminForm, PostForm, CommentForm, SearchForm
 from .. import db
 from ..models import Permission, Role, User, Post, Comment
 from ..decorators import admin_required, permission_required
+from config import MAX_SEARCH_RESULTS
+#import flask_whooshalchemy
+
+
+@main.before_app_request
+def before_request(): #定义全局变量
+    #g.user = current_user
+    #if (g.user.is_authenticated()):
+    #    g.user.last_seen = datetime.utcnow()
+    #db.session.add(g.user)
+    #db.session.commit()
+    g.search_form = SearchForm()
 
 
 @main.route('/shutdown')
@@ -17,6 +29,19 @@ def server_shutdown():
         abort(500)
     shutdown()
     return 'Shutting down...'
+
+
+@main.route('/search', methods = ['POST'])
+def search():
+    if not g.search_form.validate_on_submit():
+        return redirect(url_for('.index'))
+    return redirect(url_for('.search_results', query = g.search_form.search.data))
+
+@main.route('/search_results/<query>')
+def search_results(query):
+    posts = Post.query.whoosh_search(query, MAX_SEARCH_RESULTS).all()
+
+    return render_template('search_results.html', query=query, posts=posts,)
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -66,7 +91,7 @@ def user(username):
                            pagination=pagination, username=username)
 
 
-@main.route('/edit-profile', methods=['GET', 'POST'])
+@main.route('/edit_profile-normaluser', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
     form = EditProfileForm()
@@ -80,7 +105,7 @@ def edit_profile():
     form.name.data = current_user.name
     form.location.data = current_user.location
     form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', form=form)
+    return render_template('edit_profile-normaluser.html', form=form)
 
 
 @main.route('/edit-profile/<int:id>', methods=['GET', 'POST'])

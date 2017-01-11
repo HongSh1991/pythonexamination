@@ -54,7 +54,7 @@ class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'mysql://root:hs123@localhost/myflaskproject'
 # % cf.get("MySQL", "MySQL_PASSWORD")
 
-
+MAX_SEARCH_RESULTS = 5
 config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,

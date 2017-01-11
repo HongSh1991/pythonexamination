@@ -3,17 +3,17 @@
 {% block title %}HONGSH - 确认您的账户{% endblock %}
 
 {% block page_content %}
-<div class="page-header">
-    <h1>
+<div class="page-header" style="vertical-align: center;">
+    <span style="font-size: 20pt; font-weight: bold;">
         您好，{{ current_user.username }}！
-    </h1>
-    <h3>您还没有确认注册.</h3>
+    </span>
+    <span style="font-size: 18pt; font-weight: bold;">您还没有确认注册.</span>
     <p>
         在登陆本站之前需要注册并确认。
     </p>
     <p>
         没有收到确认邮件？
-        <a href="{{ url_for('auth.resend_confirmation') }}">重新发送</a>
+        <a href="{{ url_for('auth.resend_confirmation') }}" style="color: #126fda; text-decoration: underline;">重新发送</a>
     </p>
 </div>
 {% endblock %}

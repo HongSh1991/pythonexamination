@@ -32,13 +32,15 @@
                     </div>
                     <!-- class="collapse navbar-collapse" id="navbar-collapse-1"-->
                     <div>
-                        <form class="navbar-form navbar-right" role="search">
+                        <form class="navbar-form navbar-right" role="search" method="post">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="请输入关键词" style="width: 300px; height: 30px; border-radius: 2px; font-size: 10pt">
                                 <span class="glyphicon glyphicon-search form-control-feedback
                                 form-control-feedback-xilou"></span>
                             </div>
-                            <button class="btn btn_primary" type="button" style="background-color: #126fda; font-family: '黑体'; border-color: white; border-radius: 3px; border-style: solid; color: white; border-width: 0.5px; width: 60px;height: 30px; font-size: 10pt; font-weight: bold;">搜&nbsp;&nbsp;索</button>
+                            <button class="btn btn_primary" type="button" style="background-color: #126fda; font-family: '黑体'; border-color: white; border-radius: 3px; border-style: solid; color: white; border-width: 0.5px; width: 60px;height: 30px; font-size: 10pt; font-weight: bold;">
+                            搜&nbsp;&nbsp;索
+                            </button>
                         </form>
                         <ul class="nav navbar-nav navbar-left">
                             {% if current_user.is_authenticated %}

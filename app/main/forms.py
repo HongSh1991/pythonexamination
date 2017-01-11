@@ -24,8 +24,7 @@ class EditProfileForm(Form):
 
 
 class EditProfileAdminForm(Form):
-    email = StringField(u'邮箱', validators=[Required(), Length(1, 64),
-                                             Email()])
+    email = StringField(u'邮箱', validators=[Required(), Length(1, 64), Email()])
     username = StringField(u'用户名', validators=[
         Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                                           u'用户名只能包括字母数字小数点或下划线')])
@@ -55,14 +54,19 @@ class EditProfileAdminForm(Form):
 
 class PostForm(Form):
     title = StringField(u'文章标题', validators=[DataRequired(message='请输入文字...'),
-                                             Length(0, 40, message='文章标题请限制40字以内')])
-    body = PageDownField(u"记录您的点滴...", validators=[DataRequired(message='请输入文字...')])
+                                             Length(0, 40, message='文章标题请限制40字以内')],
+                render_kw={'style': 'width:40%; border-width:1px; border-color:#126fda;'})
     category = SelectField('文章分类：', 
         choices=[('Python', 'Python'), ('Flask', 'Flask'), ('Django','Django'), 
                  ('算法导论', '算法导论'), ('数据库', '数据库'),
                  ('Hadoop', 'Hadoop'), ('Spark', 'Spark'),
-                 ('随笔', '随笔')], coerce=str, render_kw={"style": "border-radius:2px; border-width:1px; border-color:#126fda;"})
-    submit = SubmitField(u'发表博客')
+                 ('随笔', '随笔')], coerce=str, 
+                 render_kw={'style': 'width:20%; border-width:1px; border-color:#126fda; \
+                 background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;\
+                  padding-right: 14px; appearance:none; -moz-appearance:none; -webkit-appearance:none;'})
+    body = PageDownField(u"记录您的点滴...", validators=[DataRequired(message='请输入文字...')],
+        render_kw={'style': 'border-color:#126fda; border-width:1px; height:200px;'})
+    submit = SubmitField(u'发表博客', render_kw={"style": "width:100px; height:40px; background-color:#126fda; font-weight:bold;"})
     
 
 class EditPostForm(Form):
@@ -71,5 +75,11 @@ class EditPostForm(Form):
 
 
 class CommentForm(Form):
-    body = StringField(u'写下您的评论', validators=[Required()])
-    submit = SubmitField(u'提交')
+    body = StringField(u'写下您的评论', validators=[Required()],
+        render_kw={'style': 'border-width:1px; border-color:#126fda; height:200px; width:872px;'})
+    submit = SubmitField(u'提交', render_kw={"style": "width:80px; height:40px; background-color:#126fda; font-weight:bold;"})
+
+
+class SearchForm(Form):
+    search = StringField('search', validators = [Required()])
+    #submit = SubmitField(u'搜索')
