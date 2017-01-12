@@ -1,8 +1,8 @@
 This project is for pythonexamination
 Based on Flask+Bootstrap+MySQl
 
-# 使用说明：
-  系统唯一指定管理员账号：hjmrezl@outlook.com 112233
+# 使用说明：  
+  系统唯一指定管理员账号：hjmrezl@outlook.com 112233  
   测试账号：1204427627@qq.com
   
 # HONGSH
